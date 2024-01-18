@@ -1,1 +1,1 @@
- WebGame xd
+ WebGame
