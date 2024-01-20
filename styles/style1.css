@@ -1,4 +1,3 @@
-/* Reset some default styles */
 body, h1, h2, h3, p, ul, li {
     margin: 0;
     padding: 0;
@@ -9,41 +8,73 @@ body, h1, h2, h3, p, ul, li {
     box-sizing: border-box;
 }
 
-/* Add a basic styling to the body */
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background-color: #f0f0f0; /* Light grayish background */
+    background-color: #f0f0f0;
+}
+
+#menu-container {
+    position: fixed;
+    top: 0;
+    left: -300px; /* Ukryj menu poza obszarem widocznym */
+    height: 100%;
+    width: 300px;
+    background-color: #333;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+#menu {
+    list-style-type: none;
+    padding: 0;
+    color: white;
+}
+
+#menu li {
+    padding: 15px;
+    border-bottom: 1px solid #555;
+}
+
+#menu li:hover {
+    background-color: #555;
 }
 
 .top-banner {
     width: 100%;
     height: 5vh;
-    background-color: #333; /* Dark grayish color */
+    background-color: #333;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: space-between; /* Distribute items evenly */
+    align-items: center; /* Center items vertically */
+    padding: 0 20px; /* Add padding for better spacing */
 }
 
 .top-banner a {
     text-decoration: none;
-    color: #fff; /* White color */
+    color: #fff;
     font-weight: bold;
+}
+
+.top-banner a:hover {
+    background-color: rgb(178, 161, 161);
+    border-radius: 10px;
+    transition: 0.3s;
 }
 
 .container {
     display: grid;
     grid-template-columns: repeat(3, minmax(200px, 1fr));
     gap: 1rem;
-    margin: 20px; /* Added some margin for spacing */
+    margin: 20px;
 }
 
 .game {
     height: 100%;
-    background-color: #fff; /* White background */
+    background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-shadow: 1px 1px 2px #ccc; /* Changed box-shadow color */
+    box-shadow: 1px 1px 2px #ccc;
     margin: 10px;
     display: flex;
     flex-direction: column;
@@ -52,25 +83,33 @@ body {
 .game img {
     max-width: 100%;
     height: auto;
-    border-bottom: 1px solid #ccc; /* Changed border color */
+    border-bottom: 1px solid #ccc;
 }
 
 .game h2 {
     font-size: 1.2rem;
     margin: 10px;
-    color: #333; /* Changed text color */
+    color: #333;
 }
 
 .play-button {
-    margin-top: auto; /* Push the play button to the bottom */
-    background-color: #4CAF50; /* Changed button background color */
-    color: #fff; /* Changed button text color */
+    margin-top: auto;
+    background-color: #4CAF50;
+    color: #fff;
     border: none;
     padding: 10px;
     cursor: pointer;
 }
 
-/* Add some hover effects */
 .play-button:hover {
-    background-color: #3e8e41; /* Changed button hover background color */
+    background-color: #3e8e41;
+}
+
+#list {
+    float: left;
+}
+
+.top-banner img {
+    width: 35px;
+    height: 35px;
 }
