@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in</title>
+    <style>
+        body {background-color: white;}
+        h1   {color: blue;}
+        p    {color: red;}
+        .login-container{ vertical-align: middle;
+                 border-color: #000000;
+                 border-width: 1px;
+                 border-style: solid;
+                 margin-top: 25%;
+                 margin-bottom: 25%;}
+       
+        </style>
+
+</head>
+<body>
+
+    <div id='login-container'>
+        <form method='post' action="login.php">
+        Username:<br>
+        <input type='text' name="login"><br>
+        Password:<br>
+        <input type="password" name="password"><br>
+        Confirm password:<br>
+        <input type="password" name="rpassword"><br>
+        <input type="submit" value="Sign in">
+    </form>
+    </div>
+</body>
+</html>

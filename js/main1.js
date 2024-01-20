@@ -7,12 +7,10 @@ function toggleList() {
     }
   }
   
-// Dodaj obsługę kliknięcia poza menu
 document.addEventListener("click", function (event) {
     var menuContainer = document.getElementById("menu-container");
     var target = event.target;
 
-    // Pobierz obliczoną wartość stylu 'left'
     var leftValue = window.getComputedStyle(menuContainer).getPropertyValue('left');
 
     // Jeśli kliknięto poza menu i menu jest otwarte, to schowaj menu
