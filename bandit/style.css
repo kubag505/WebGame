@@ -6,6 +6,7 @@
   }
   body, html {
     width: 100%;
+    height:1000px;
   }
   canvas {
     display: block;
@@ -19,6 +20,7 @@
     width: 100%;
     min-width: 350px;
     border: 2rem ridge #333;
+    height:50vh;
   }
   
   .btn {
