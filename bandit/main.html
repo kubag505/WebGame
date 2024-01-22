@@ -47,7 +47,7 @@
     font-weight: bold;
   }
   
-  .cash, .bet {
+  .cash, .bet, .input {
     position: absolute;
     bottom: 15%;
     left: 5%;
@@ -62,29 +62,57 @@
     border-left: 1rem solid #0f9;
     box-shadow: inset 0 -2px 30px #0ff;
   }
-  .bet {
-    bottom: 2%;
-  }
-  
+
   .valute {
     margin-left: auto;
     margin-right: 0.25rem;
     color: lime;
     font-family: serif;
   }
-  .inputContainer {
-  position: absolute;
-  bottom: 2%;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  z-index: 10;
-}
+  .bet {
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    font: 24px monospace;
+    color: gold;
+    background: #000;
+    border-radius: .125rem;
+    border-right: 1rem solid #0f9;
+    border-left: 1rem solid #0f9;
+    box-shadow: inset 0 -2px 30px #0ff;
+    text-align: center; /* Center the text and input */
+  }
 
-#betAmount, #betInput {
-  margin-left: 1rem;
-}
+  #betAmount {
+    margin-right: 5px; /* Add some spacing between the bet amount and input */
+  }
+
+  #betInput {
+    width: 50px; /* Set the width of the input field */
+    padding: 5px; /* Add padding to the input field */
+    font-size: 16px; /* Adjust the font size */
+    border: 1px solid #0f9; /* Add a border to the input field */
+    border-radius: 3px; /* Add border-radius for a rounded appearance */
+    background-color: #333; /* Set background color */
+    color: gold; /* Set text color */
+    margin-left: 5px; /* Add some spacing between the bet amount and input */
+  }
+
+  .valute {
+    margin-left: auto;
+    margin-right: 0.25rem;
+    color: lime;
+    font-family: serif;
+  }
+
+
+</style>
+
+</style>
+
+
 
 </style>
 </head>
@@ -93,12 +121,12 @@
         <button class="btn btn--start">START</button>
         <label class="cash">Cash <span class="valute">$</span><span id="cashAmount">0</span></label>
         <div class="inputContainer">
-          <label class="bet">Bet <span class="valute">$</span><span id="betAmount">10</span></label>
-          <input type="number" id="betInput" min="1" max="10000" step="1" value="10">
+            <label class="bet">Bet <span class="valute">$</span><span id="betAmount">10</span>
+                <input type="number" id="betInput" min="1" max="10000" step="1" value="10">
+            </label>
         </div>
-    
         <canvas id="canva"></canvas>
-      </div>
+    </div>
 <script>
 class Drum {
   constructor({ ctx, x, y, w, h, values = [] }) {
