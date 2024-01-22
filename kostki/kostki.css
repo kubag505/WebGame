@@ -1,0 +1,8 @@
+#baner{
+    height: 200px;
+    width: 100%;
+    background-color: rgb(94, 55, 186);
+    margin: 50px;
+    text-align: center;
+    position: absolute;
+}
