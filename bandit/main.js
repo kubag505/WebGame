@@ -2,7 +2,7 @@
 const canvasUI = {
     start: document.querySelector('.btn--start'),
     cashAmount: document.getElementById('cashAmount'),
-    betAmount: document.getElementById('betAmount'),
+    betAmount: document.getElementById('betInput'),
   };
   
   let values = [];
@@ -80,24 +80,30 @@ const canvasUI = {
     GAME.drum3 = GAME.drum3 ? GAME.drum3.setting(drumOpts) : new Drum(drumOpts);
   }
   
-  
-  /*
-    Game Code of simulator
-  */
+
   
   
-  canvasUI.start.onclick = () => {
-    canvasUI.start.disabled = true;
-    if (GAME.cash == 0) GAME.cash = GAME.defCash;
+    canvasUI.start.onclick = () => {
+      if (GAME.bet > GAME.cash && ) {
+        alert("Not enough cash to place this bet.");
+        canvasUIUI.start.disabled=true;
+        return;
+      }
+      else
     
-    GAME.cash -= GAME.bet;
-    (new Animation()).add({
-      duration: 800, cb: changeCashByProgress
-    }).start();
+      // Continue with the game logic here
     
-    const Anim = new Animation();
-    let duration = 0;
-    let step = 1500;
+      canvasUI.start.disabled = true;
+      if (GAME.cash == 0) GAME.cash = GAME.defCash;
+    
+      GAME.cash -= GAME.bet;
+      (new Animation()).add({
+        duration: 800, cb: changeCashByProgress
+      }).start();
+    
+      const Anim = new Animation();
+      let duration = 0;
+      let step = 1500;
     
     for (let i = 1; i <= 3; i++) {
       GAME.random[i - 1] = ~~(Math.random() * GAME.values.length) + GAME.values.length*i;
@@ -122,12 +128,12 @@ const canvasUI = {
       for (let i = 1; i <= 3; i++) {
         combo.push(GAME[`drum${i}`].currentValue);
       }
-      
+  
       GAME.cash += getWinnnings(combo);
       (new Animation()).add({
         duration: 800, cb: changeCashByProgress
       }).start();
-      
+  
       canvasUI.start.disabled = false;
     }).start();
   };
