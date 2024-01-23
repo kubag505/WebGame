@@ -32,6 +32,8 @@ body {
     position: relative;
     width: auto;
     height: 100%; 
+    left: 500px;
+
   }
   
   .container {
@@ -146,16 +148,7 @@ body {
     left: 80%; 
   }
 
-#baner{
-    height: 10%;
-    width: 100%;
-    background-color: rgb(94, 55, 186);
-    text-align: center;
-    position:static;
-    padding: 50px;
-    font-size: 1.7em;
-    overflow: none;
-}
+
 
 #zaklady{
     height:250px;
@@ -163,9 +156,9 @@ body {
     background-color: rgb(170, 148, 220);
     text-align: center;
     font-size: 1.7em;
-    position: static;
-    overflow: none;
-    padding: 20px;
+    position: relative;
+    float: left;
+    right: 100px;
 
 }
 
