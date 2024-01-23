@@ -1,11 +1,28 @@
-function rollDice() {
-    // Generate a random number between 1 and 6 (representing the faces of a die)
-    const kosc1 = Math.floor(Math.random() * 6) + 1;
-    const kosc2 = Math.floor(Math.random() * 6) + 1;
+var elDiceOne       = document.getElementById('dice1');
+var elDiceTwo       = document.getElementById('dice2');
+var elComeOut       = document.getElementById('roll');
 
-    // Display the rolled number on the dice element
-    const rzut1 = document.getElementById('kostka1');
-    const rzut2 = document.getElementById('kostka2');
-    rzut1.textContent = `kostka nr 1: ${kosc1}`;
-    rzut2.textContent = `kostka nr 2: ${kosc2}`;
+elComeOut.onclick   = function () {rollDice();};
+
+function rollDice() {
+
+  var diceOne   = Math.floor((Math.random() * 6) + 1);
+  var diceTwo   = Math.floor((Math.random() * 6) + 1);
+ 
+  console.log(diceOne + ' ' + diceTwo);
+
+  for (var i = 1; i <= 6; i++) {
+    elDiceOne.classList.remove('show-' + i);
+    if (diceOne === i) {
+      elDiceOne.classList.add('show-' + i);
+    }
+  }
+
+  for (var k = 1; k <= 6; k++) {
+    elDiceTwo.classList.remove('show-' + k);
+    if (diceTwo === k) {
+      elDiceTwo.classList.add('show-' + k);
+    }
+  } 
+  setTimeout(rollDice(), 1000);
 }
