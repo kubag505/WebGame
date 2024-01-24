@@ -94,14 +94,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Obiekty z warunkami zakładów
   const betOptionConditions = {
-    parzyste: (totalValue) => totalValue % 2 === 0,
+    parzyste: (totalValue) => totalValue % 2 == 0,
     nieparzyste: (totalValue) => totalValue % 2 !== 0,
     jeden_cztery: (totalValue) => totalValue >= 1 && totalValue <= 4,
     piec_osiem: (totalValue) => totalValue >= 5 && totalValue <= 8,
     dziewiec_dwan: (totalValue) => totalValue >= 9 && totalValue <= 12,
     jeden_szesc: (totalValue) => totalValue >= 1 && totalValue <= 6,
     siedem_dwan: (totalValue) => totalValue >= 7 && totalValue <= 12,
-    para: (totalValue, diceOne, diceTwo) => diceOne === diceTwo,
+    para: (totalValue, diceOne, diceTwo) => diceOne == diceTwo,
   };
 
   if (balanceElement) {
