@@ -5,98 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Simulator one-armed bandit</title>
-  <style>* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    outline: none;
-  }
-  body, html {
-    width: 100%;
-  }
-  canvas {
-    display: block;
-    background: radial-gradient(at top, #FEFFFF, #A7CECC);
-  }
-  
-  .wrap {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    min-width: 350px;
-    border: 2rem ridge #333;
-  }
-  
-  .btn {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #333;
-    color: #afa;
-    border: 1px solid black;
-    border-radius: .125rem;
-    cursor: pointer;
-    z-index: 10;
-  }
-  
-  .btn--start {
-    top: 10%;
-    font-family: serif;
-    font-weight: bold;
-  }
-  
-  .cash, .bet {
-    position: absolute;
-    bottom: 15%;
-    left: 5%;
-    right: 5%;
-    padding: 1% 4%;
-    display: flex;
-    font: 24px monospace;
-    color: gold;
-    background: #000;
-    border-radius: .125rem;
-    border-right: 1rem solid #0f9;
-    border-left: 1rem solid #0f9;
-    box-shadow: inset 0 -2px 30px #0ff;
-    border-radius: 100px;
-  }
-  .bet {
-    bottom: 2em;
-  }
-  
-  .valute {
-    margin-left: auto;
-    margin-right: 0.25rem;
-    color: lime;
-    font-family: serif;
-  }
-  .inputContainer {
-  position: absolute;
-  bottom: 2%;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  z-index: 10;
-}
-
-#betAmount, #betInput {
-  margin-left: 1rem;
-}
-
-</style>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <div class="wrap">
         <button class="btn btn--start">START</button>
-        <label class="cash">Cash <span class="valute">$</span><span id="cashAmount">0</span></label>
-        <div class="inputContainer">
-          <label class="bet">Bet <span class="valute">$</span><span id="betAmount">10</span></label>
-          <input type="number" id="betInput" min="1" max="10000" step="1" value="10">
-        </div>
+        <label class="cash">Cash <span class="valute">$</span><span id="cashAmount" default=>0</span><span><br>Bet: <input type="number" value="10"  id="betInput"><br>$</span><span id="betAmount">10</span></label>
+    
+       
     
         <canvas id="canva"></canvas>
       </div>
@@ -348,7 +264,7 @@ class Animation
 
   canvasUI.cashAmount.innerHTML = GAME.cash;
   canvasUI.betAmount.innerHTML = GAME.bet;
-
+  
   refreshRender();
 
   window.onresize = refreshRender;
@@ -403,20 +319,25 @@ class Animation
   const betInput = document.getElementById('betInput');
   const betAmount = document.getElementById('betAmount');
   betInput.addEventListener('input', () => {
-    betAmount.textContent = betInput.value;
-  });
-  canvasUI.start.onclick = () => {
-    const betInput = document.getElementById('betInput');
-    GAME.bet = parseInt(betInput.value) || 10;
+  betAmount.textContent = betInput.value;
+});
+canvasUI.start.onclick = () => {
+  const currentBet = parseInt(betInput.value);
 
+  if (currentBet > GAME.cash) {
+    alert("Not enough cash to place this bet.");
+    canvasUIUI.start.disabled = true;
+    return;
+  } else {
+    // Continue with the game logic here
     canvasUI.start.disabled = true;
-
     if (GAME.cash === 0) GAME.cash = GAME.defCash;
 
-    GAME.cash -= GAME.bet;
+    GAME.cash -= currentBet;
     (new Animation()).add({
       duration: 800, cb: changeCashByProgress
     }).start();
+  }
 
     const Anim = new Animation();
     let duration = 0;
@@ -471,17 +392,17 @@ class Animation
 
     if (res.weight < 1) return defRes;
 
-  const winnnings = { // weight -> val
-    '1': { '7': 10 },
-    '2': {
-      '1': 100, '2': 200, '3': 300, '4': 400,
-      '5': 500, '6': 750, '7': 1000
-    },
-    '3': {
-      '1': 2500, '2': 5000, '3': 15000, '4': 25000,
-      '5': 50000, '6': 75000, '7': 1000000
-    }
-  };
+    const winnnings = { // weight -> val
+      '1': { '7': 0 },
+      '2': {
+        '1': GAME.bet*1.05, '2': GAME.bet*1.05, '3':  GAME.bet*1.05, '4':  GAME.bet*1.05,
+        '5':  GAME.bet*1.05, '6': GAME.bet*1.05, '7':  GAME.bet*1.2
+      },
+      '3': {
+        '1':  GAME.bet*2, '2': GAME.bet*2, '3': GAME.bet*2, '4': GAME.bet*2,
+        '5': GAME.bet*2, '6': GAME.bet*2, '7': GAME.bet*10
+      }
+    };
   
   if (winnnings[res.weight] && winnnings[res.weight][res.val]) {
     return winnnings[res.weight][res.val] * bet * .1;
