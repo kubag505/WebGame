@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dice Game</title>
+</head>
+<script src="kostki.js"></script>
+<link rel="stylesheeet" href="kostki.css">
+<body>
+	<h1>Dice Game</h1>
+	<p>Balance: <span id="balance">1000</span></p>
+	<input type="number" id="bet" placeholder="Enter your bet">
+	<button onclick="rollDice()">Roll Dice</button>
+    <input type="radio" id="one_four" class="radio" name="but">
+    <label for="one_four">1-4</label>
+    <input type="radio" id="five_eight" class="radio" name="but">
+    <label for="five_eight">5-8</label>
+    <input type="radio" id="nine_twelve" class="radio" name="but">
+    <label for="nine_twelve">9-12</label>
+    <input type="radio" id="one_six" class="radio" name="but">
+    <label for="one_six">1-6</label>
+    <input type="radio" id="seven_twelve" class="radio" name="but">
+    <label for="seven_twelve">7-12</label>
+    <input type="radio" id="pair" class="radio" name="but">
+    <label for="pair">pair</label>
+    <input type="radio" id="even" class="radio" name="but">
+    <label for="even">even</label>
+    <input type="radio" id="odd" class="radio" name="but">
+    <label for="odd">odd</label>
+
+
+	<p id="result"></p>
+
+    </body>
+</html>
