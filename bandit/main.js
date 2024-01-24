@@ -84,7 +84,7 @@ const canvasUI = {
   
   
     canvasUI.start.onclick = () => {
-      if (GAME.bet > GAME.cash && ) {
+      if (GAME.bet > GAME.cash) {
         alert("Not enough cash to place this bet.");
         canvasUIUI.start.disabled=true;
         return;
@@ -155,14 +155,14 @@ const canvasUI = {
     if (res.weight < 1) return defRes;
   
     const winnnings = { // weight -> val
-      '1': { '7': 10 },
+      '1': { '7': 0 },
       '2': {
-        '1': 100, '2': 200, '3': 300, '4': 400,
-        '5': 500, '6': 750, '7': 1000
+        '1': GAME.bet*1.05, '2': GAME.bet*1.05, '3':  GAME.bet*1.05, '4':  GAME.bet*1.05,
+        '5':  GAME.bet*1.05, '6': GAME.bet*1.05, '7':  GAME.bet*1.2
       },
       '3': {
-        '1': 2500, '2': 5000, '3': 15000, '4': 25000,
-        '5': 50000, '6': 75000, '7': 1000000
+        '1':  GAME.bet*2, '2': GAME.bet*2, '3': GAME.bet*2, '4': GAME.bet*2,
+        '5': GAME.bet*2, '6': GAME.bet*2, '7': GAME.bet*10
       }
     };
     
