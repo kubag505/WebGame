@@ -1,0 +1,121 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: radial-gradient(circle at 10% 20%, rgb(0, 0, 0) 0%, rgb(64, 64, 64) 90.2%);
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
+.block {
+    height: 100vh; 
+    box-sizing: border-box;
+    justify-content: center;
+}
+
+#block1, #block2{
+    
+}
+.row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 -12px; /* Negative margin to create a gap between columns */
+}
+
+.col-md-4 {
+    flex: 0 0 calc(33.33% - 24px); /* 33.33% width with a 12px gap on each side */
+    margin-bottom: 24px; /* Space between rows */
+}
+
+.game_box {
+    display: flex;
+    gap: 12px;
+    float: left;
+    border: 1px solid white;
+}
+
+h2, .block {
+    position: relative;
+    font-size: 2em;
+    letter-spacing: 7px;
+    color: #185769;
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+    line-height: 0.9em;
+    outline: none;
+}
+h2{
+    top:50%;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0008);
+}
+h3{
+    position: relative;
+    font-size: 2em;
+    letter-spacing: 7px;
+    color: #185769;
+    width: 100%;
+    text-align: center;
+    line-height: 0.9em;
+    outline: none;
+}
+/* Add styles for other elements as needed */
+
+body::-webkit-scrollbar {
+    display: none;
+}
+.game_box {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 12px;
+    border: 1px solid white;
+    padding: 12px; /* Add padding to the container */
+}
+
+figure {
+    margin: 0; /* Remove default margin for the figure element */
+}
+
+.game-info {
+    text-align: center; /* Center-align the text */
+}
+
+h3, p {
+    margin: 0; /* Remove default margin for heading and paragraph */
+}
+.game_box img{
+    width:80%;
+    height:350px;
+}
+.game_box h3:first-child{
+    font-size:70%;
+}
+.col-md-4{
+    width:150px;
+}
+.game-info h3{
+    width:100%;
+    background-color:white;
+    font-size:90%;
+}
+.col-md-4.padding_bottom{
+   height:50vh;
+}
+.col-md-4 {
+    height:150px;
+}
+a{
+    text-decoration:none;
+    color: #185769;
+}
+#footer {
+    height:3vh;
+    color: black;
+    font-weight:bold;
+    text-align: center;
+    position:relative;
+clear:both;
+    bottom: 0;
+    width: 100%;
+}
