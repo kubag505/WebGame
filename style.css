@@ -13,19 +13,17 @@ body, html {
     justify-content: center;
 }
 
-#block1, #block2{
-    
-}
+
 .row {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin: 0 -12px; /* Negative margin to create a gap between columns */
+    margin: 0 -12px; 
 }
 
 .col-md-4 {
-    flex: 0 0 calc(33.33% - 24px); /* 33.33% width with a 12px gap on each side */
-    margin-bottom: 24px; /* Space between rows */
+    flex: 0 0 calc(33.33% - 24px); 
+    margin-bottom: 24px; 
 }
 
 .game_box {
@@ -60,29 +58,29 @@ h3{
     line-height: 0.9em;
     outline: none;
 }
-/* Add styles for other elements as needed */
+
 
 body::-webkit-scrollbar {
     display: none;
 }
 .game_box {
     display: flex;
-    flex-direction: column; /* Stack items vertically */
+    flex-direction: column; 
     gap: 12px;
     border: 1px solid white;
-    padding: 12px; /* Add padding to the container */
+    padding: 12px; 
 }
 
 figure {
-    margin: 0; /* Remove default margin for the figure element */
+    margin: 0; 
 }
 
 .game-info {
-    text-align: center; /* Center-align the text */
+    text-align: center; 
 }
 
 h3, p {
-    margin: 0; /* Remove default margin for heading and paragraph */
+    margin: 0;
 }
 .game_box img{
     width:80%;
@@ -94,6 +92,7 @@ h3, p {
 .col-md-4{
     width:150px;
 }
+
 .game-info h3{
     width:100%;
     background-color:white;
